@@ -14,17 +14,17 @@ interface IThemeProviderProps {
 export const ThemeContext = createContext({} as IThemeContextProps);
 
 export const AppThemeProvider = ({ children }: IThemeProviderProps) => {
-  const [themeName, setThemeName] = useState<'light' | 'dark'>('light');
+  const [themeName, setThemeName] = useState<'light' | 'dark'>('dark');
 
   const toggleTheme = useCallback(() => {
-    setThemeName(oldthemeName => oldthemeName === 'light' ? 'dark' : 'light');
+    setThemeName(oldthemeName => oldthemeName === 'dark' ? 'light' : 'dark');
   }, []);
 
   const theme = useMemo(() => {
-    if(themeName === 'light') {
-      return LightTheme;
-    } else {
+    if(themeName === 'dark') {
       return DarkTheme;
+    } else {
+      return LightTheme;
     }
   }, [themeName]);
 

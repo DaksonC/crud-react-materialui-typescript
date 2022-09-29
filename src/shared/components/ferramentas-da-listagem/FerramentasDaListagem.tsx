@@ -16,7 +16,7 @@ interface IFerramentasDaListagemProps {
   aoClocarNoBotao?: () => void;
 }
 
-export const DeFerramentasDaListagem = ({
+export const FerramentasDaListagem = ({
   textoDaBusca = '',
   mostrarInputBuscar = false,
   aoMostrarTextDeBusca,

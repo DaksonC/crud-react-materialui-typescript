@@ -8,9 +8,9 @@ import {
   ListItemButton,
   ListItemIcon,
   Icon,
-  ListItemText
+  ListItemText,
+  Box
 } from '@mui/material';
-import { Box } from '@mui/system';
 import { LinkMenu } from './LinkMenu';
 import { useDrawerContext, useThemeContext } from '../../contexts';
 

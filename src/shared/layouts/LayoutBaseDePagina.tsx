@@ -4,9 +4,9 @@ import {
   Theme, 
   Typography, 
   useMediaQuery, 
-  useTheme 
+  useTheme,
+  Box
 } from '@mui/material';
-import { Box } from '@mui/system';
 import { useDrawerContext } from '../contexts';
 
 interface ILayoutBaseDePaginaProps {

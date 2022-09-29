@@ -4,11 +4,15 @@ import {
   Avatar, 
   Divider,
   List,
-  useMediaQuery
+  useMediaQuery,
+  ListItemButton,
+  ListItemIcon,
+  Icon,
+  ListItemText
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { LinkMenu } from './LinkMenu';
-import { useDrawerContext } from '../../contexts';
+import { useDrawerContext, useThemeContext } from '../../contexts';
 
 interface MenuLateralProps {
   children: React.ReactNode;
@@ -18,6 +22,7 @@ export const MenuLateral = ({ children }: MenuLateralProps) => {
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
+  const { toggleTheme } = useThemeContext();
 
   return(
     <>
@@ -57,6 +62,22 @@ export const MenuLateral = ({ children }: MenuLateralProps) => {
                 />  
               ))}          
             </List>
+          </Box>
+          <Box>
+            <ListItemButton onClick={toggleTheme}>
+              <ListItemIcon>
+                {
+                  theme.palette.mode === 'dark' 
+                  ? (<Icon>light_mode</Icon>)
+                  :(<Icon>dark_mode</Icon> )
+                }
+              </ListItemIcon>
+              {
+                theme.palette.mode === 'dark'
+                ? (<ListItemText primary='Modo claro' />)
+                : (<ListItemText primary='Modo escuro' />)
+              }
+            </ListItemButton>
           </Box>
         </Box>
       </Drawer>

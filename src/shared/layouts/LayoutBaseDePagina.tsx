@@ -12,12 +12,19 @@ import { useDrawerContext } from '../contexts';
 interface ILayoutBaseDePaginaProps {
   titulo: string;
   children: React.ReactNode;
+  barraDeFerramentas?: React.ReactNode;
 }
 
 
-export const LayoutBaseDePagina = ({ children, titulo }: ILayoutBaseDePaginaProps) => {
+export const LayoutBaseDePagina = (
+  { 
+    children, 
+    titulo, 
+    barraDeFerramentas 
+  }: ILayoutBaseDePaginaProps) => {
 
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const theme = useTheme();
 
   const { toggleDrawerOpen } = useDrawerContext();
@@ -34,21 +41,28 @@ export const LayoutBaseDePagina = ({ children, titulo }: ILayoutBaseDePaginaProp
         gap={1}
         display='flex'
         alignItems='center'
-        height={theme.spacing(12)}
+        height={theme.spacing(smDown ? 6 : mdDown ? 8 : 10)}
       >
         {smDown && (
           <IconButton onClick={toggleDrawerOpen}>
             <Icon>menu</Icon>
           </IconButton>
         )}
-        <Typography variant='h4'>
+        <Typography 
+          variant={smDown ? 'h5' : mdDown ? 'h4' : 'h3'}
+          overflow='hidden'
+          whiteSpace='nowrap'
+          textOverflow='ellipsis'
+        >
           {titulo}
         </Typography>
       </Box>
-      <Box>
-        Barra de Ferramentas
-      </Box>
-      <Box>
+      {barraDeFerramentas && (
+        <Box>
+          {barraDeFerramentas}
+        </Box>
+      )}
+      <Box flex={1} overflow='auto'>
         {children}
       </Box>
     </Box>

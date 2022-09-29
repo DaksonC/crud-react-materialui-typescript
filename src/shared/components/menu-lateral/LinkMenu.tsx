@@ -1,5 +1,5 @@
-import { Icon, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
+import { Icon, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 
 interface ILinksProps {
   to: string;

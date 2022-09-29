@@ -1,4 +1,15 @@
-import { Box, Button, Divider, Icon, Paper, useTheme, Skeleton } from "@mui/material";
+import { 
+  Box, 
+  Button, 
+  Divider, 
+  Icon, 
+  Paper,
+  useTheme,
+  Skeleton, 
+  Typography, 
+  useMediaQuery, 
+  Theme 
+  } from "@mui/material";
 
 interface IFerramentasDeDetalhesProps {
   textoBotaoNovo?: string;
@@ -44,6 +55,8 @@ export const FerramentasDeDetalhes = ({
   aoClocarNoBotaoSalvarEVoltar,
 }: IFerramentasDeDetalhesProps) => {
 
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+
   const theme = useTheme();
   
   return (
@@ -68,12 +81,19 @@ export const FerramentasDeDetalhes = ({
           disableElevation
           startIcon={<Icon>save</Icon>}
           onClick={aoClocarNoBotaoSalvar}
-        >Salvar</Button>
+        >
+          <Typography 
+            variant='button'
+            whiteSpace='nowrap'
+            textOverflow='ellipsis'
+            overflow='hidden'
+          >Salvar</Typography>
+        </Button>
       )}
-      {mostrarBotaoSalvarEVoltarCarregando && (
+      {(mostrarBotaoSalvarEVoltarCarregando && !smDown) && (
         <Skeleton width={160} height={50}/>
       )}
-      {(mostrarBotaoSalvarEVoltar && !mostrarBotaoSalvarEVoltarCarregando) && (
+      {(mostrarBotaoSalvarEVoltar && !mostrarBotaoSalvarEVoltarCarregando && !smDown) && (
         <Button
           variant='outlined'
           color='primary'
@@ -81,7 +101,14 @@ export const FerramentasDeDetalhes = ({
           disableElevation
           startIcon={<Icon>save</Icon>}
           onClick={aoClocarNoBotaoSalvarEVoltar}
-        >Salvar e Voltar</Button>
+        >
+          <Typography 
+            variant='button'
+            whiteSpace='nowrap'
+            textOverflow='ellipsis'
+            overflow='hidden'
+          >Salvar e Voltar</Typography>
+        </Button>
       )}
       {mostrarBotaoApagarCarregando && (
         <Skeleton width={100} height={50}/>
@@ -94,7 +121,14 @@ export const FerramentasDeDetalhes = ({
           disableElevation
           startIcon={<Icon>delete</Icon>}
           onClick={aoClocarNoBotaoApagar}
-        >Apagar</Button>
+        >
+          <Typography 
+            variant='button'
+            whiteSpace='nowrap'
+            textOverflow='ellipsis'
+            overflow='hidden'
+          >Apagar</Typography>
+        </Button>
       )}
       {mostrarBotaoNovoCarregando && (
         <Skeleton width={100} height={50}/>
@@ -107,17 +141,29 @@ export const FerramentasDeDetalhes = ({
           disableElevation
           startIcon={<Icon>add</Icon>}
           onClick={aoClocarNoBotaoNovo}
-        >{textoBotaoNovo}</Button>
+        >
+          <Typography 
+            variant='button'
+            whiteSpace='nowrap'
+            textOverflow='ellipsis'
+            overflow='hidden'
+          >{textoBotaoNovo}</Typography>
+        </Button>
       )}
-      <Divider 
-        orientation='vertical' 
-        flexItem 
-        variant='middle'
-      />
-      {mostrarBotaoVoltarCarregando && (
+      {
+        ((mostrarBotaoVoltar && !smDown) 
+          ? <Divider 
+              orientation='vertical' 
+              flexItem 
+              variant='middle'
+            />
+          : null
+        )
+      }
+      {(mostrarBotaoVoltarCarregando && !smDown) && (
         <Skeleton width={100} height={50}/>
       )}
-      {(mostrarBotaoVoltar && !mostrarBotaoVoltarCarregando) && (
+      {(mostrarBotaoVoltar && !mostrarBotaoVoltarCarregando && !smDown) && (
         <Button
           variant='outlined'
           color='primary'
@@ -125,7 +171,14 @@ export const FerramentasDeDetalhes = ({
           disableElevation
           startIcon={<Icon>arrow_back</Icon>}
           onClick={aoClocarNoBotaoVoltar}
-        >voltar</Button>
+        >
+          <Typography 
+            variant='button'
+            whiteSpace='nowrap'
+            textOverflow='ellipsis'
+            overflow='hidden'
+          >Voltar</Typography>
+        </Button>
       )}
     </Box>
   );

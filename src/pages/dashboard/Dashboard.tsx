@@ -7,7 +7,10 @@ export const Dashboard = () => {
       titulo='Layout da Página'
       barraDeFerramentas={
         (
-          <FerramentasDeDetalhes />
+          <FerramentasDeDetalhes 
+            mostrarBotaoSalvarEVoltar 
+            mostrarBotaoSalvarEVoltarCarregando
+          />
         )
       }
     >

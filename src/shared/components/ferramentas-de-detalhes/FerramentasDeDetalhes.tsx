@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Icon, Paper, useTheme } from "@mui/material";
+import { Box, Button, Divider, Icon, Paper, useTheme, Skeleton } from "@mui/material";
 
 interface IFerramentasDeDetalhesProps {
   textoBotaoNovo?: string;
@@ -9,6 +9,12 @@ interface IFerramentasDeDetalhesProps {
   mostrarBotaoSalvar?: boolean;
   mostrarBotaoSalvarEVoltar?: boolean;
 
+  mostrarBotaoNovoCarregando?: boolean;
+  mostrarBotaoVoltarCarregando?: boolean;
+  mostrarBotaoApagarCarregando?: boolean;
+  mostrarBotaoSalvarCarregando?: boolean;
+  mostrarBotaoSalvarEVoltarCarregando?: boolean;
+
   aoClocarNoBotaoNovo?: () => void;
   aoClocarNoBotaoVoltar?: () => void;
   aoClocarNoBotaoApagar?: () => void;
@@ -18,11 +24,18 @@ interface IFerramentasDeDetalhesProps {
 
 export const FerramentasDeDetalhes = ({
   textoBotaoNovo = 'Novo',
+
   mostrarBotaoNovo = true,
   mostrarBotaoVoltar = true,
   mostrarBotaoApagar = true,
   mostrarBotaoSalvar = true,
   mostrarBotaoSalvarEVoltar = false,
+
+  mostrarBotaoNovoCarregando = false,
+  mostrarBotaoVoltarCarregando = false,
+  mostrarBotaoApagarCarregando = false,
+  mostrarBotaoSalvarCarregando = false,
+  mostrarBotaoSalvarEVoltarCarregando = false,
 
   aoClocarNoBotaoNovo,
   aoClocarNoBotaoVoltar,
@@ -44,7 +57,10 @@ export const FerramentasDeDetalhes = ({
       gap={1}
       component={Paper}
     >
-      {mostrarBotaoSalvar && (
+      {mostrarBotaoSalvarCarregando && (
+        <Skeleton width={100} height={50}/>
+      )}
+      {(mostrarBotaoSalvar && !mostrarBotaoSalvarCarregando) && (
         <Button
           variant='contained'
           color='primary'
@@ -54,7 +70,10 @@ export const FerramentasDeDetalhes = ({
           onClick={aoClocarNoBotaoSalvar}
         >Salvar</Button>
       )}
-      {mostrarBotaoSalvarEVoltar && (
+      {mostrarBotaoSalvarEVoltarCarregando && (
+        <Skeleton width={160} height={50}/>
+      )}
+      {(mostrarBotaoSalvarEVoltar && !mostrarBotaoSalvarEVoltarCarregando) && (
         <Button
           variant='outlined'
           color='primary'
@@ -64,7 +83,10 @@ export const FerramentasDeDetalhes = ({
           onClick={aoClocarNoBotaoSalvarEVoltar}
         >Salvar e Voltar</Button>
       )}
-      {mostrarBotaoApagar && (
+      {mostrarBotaoApagarCarregando && (
+        <Skeleton width={100} height={50}/>
+      )}
+      {(mostrarBotaoApagar && !mostrarBotaoApagarCarregando) && (
         <Button
           variant='outlined'
           color='primary'
@@ -74,7 +96,10 @@ export const FerramentasDeDetalhes = ({
           onClick={aoClocarNoBotaoApagar}
         >Apagar</Button>
       )}
-      {mostrarBotaoNovo && (
+      {mostrarBotaoNovoCarregando && (
+        <Skeleton width={100} height={50}/>
+      )}
+      {(mostrarBotaoNovo && !mostrarBotaoNovoCarregando) && (
         <Button
           variant='outlined'
           color='primary'
@@ -89,7 +114,10 @@ export const FerramentasDeDetalhes = ({
         flexItem 
         variant='middle'
       />
-      {mostrarBotaoVoltar && (
+      {mostrarBotaoVoltarCarregando && (
+        <Skeleton width={100} height={50}/>
+      )}
+      {(mostrarBotaoVoltar && !mostrarBotaoVoltarCarregando) && (
         <Button
           variant='outlined'
           color='primary'

@@ -1,6 +1,36 @@
 import { Box, Button, Divider, Icon, Paper, useTheme } from "@mui/material";
 
-export const FerramentasDeDetalhes = () => {
+interface IFerramentasDeDetalhesProps {
+  textoBotaoNovo?: string;
+
+  mostrarBotaoNovo?: boolean;
+  mostrarBotaoVoltar?: boolean;
+  mostrarBotaoApagar?: boolean;
+  mostrarBotaoSalvar?: boolean;
+  mostrarBotaoSalvarEVoltar?: boolean;
+
+  aoClocarNoBotaoNovo?: () => void;
+  aoClocarNoBotaoVoltar?: () => void;
+  aoClocarNoBotaoApagar?: () => void;
+  aoClocarNoBotaoSalvar?: () => void;
+  aoClocarNoBotaoSalvarEVoltar?: () => void;
+}
+
+export const FerramentasDeDetalhes = ({
+  textoBotaoNovo = 'Novo',
+  mostrarBotaoNovo = true,
+  mostrarBotaoVoltar = true,
+  mostrarBotaoApagar = true,
+  mostrarBotaoSalvar = true,
+  mostrarBotaoSalvarEVoltar = false,
+
+  aoClocarNoBotaoNovo,
+  aoClocarNoBotaoVoltar,
+  aoClocarNoBotaoApagar,
+  aoClocarNoBotaoSalvar, 
+  aoClocarNoBotaoSalvarEVoltar,
+}: IFerramentasDeDetalhesProps) => {
+
   const theme = useTheme();
   
   return (
@@ -14,46 +44,61 @@ export const FerramentasDeDetalhes = () => {
       gap={1}
       component={Paper}
     >
-      <Button
-        variant='contained'
-        color='primary'
-        size='small'
-        disableElevation
-        startIcon={<Icon>save</Icon>}
-      >Salvar</Button>
-      <Button
-        variant='outlined'
-        color='primary'
-        size='small'
-        disableElevation
-        startIcon={<Icon>save</Icon>}
-      >Salvar e Voltar</Button>
-      <Button
-        variant='outlined'
-        color='primary'
-        size='small'
-        disableElevation
-        startIcon={<Icon>delete</Icon>}
-      >Apagar</Button>
-      <Button
-        variant='outlined'
-        color='primary'
-        size='small'
-        disableElevation
-        startIcon={<Icon>add</Icon>}
-      >Novo</Button>
+      {mostrarBotaoSalvar && (
+        <Button
+          variant='contained'
+          color='primary'
+          size='small'
+          disableElevation
+          startIcon={<Icon>save</Icon>}
+          onClick={aoClocarNoBotaoSalvar}
+        >Salvar</Button>
+      )}
+      {mostrarBotaoSalvarEVoltar && (
+        <Button
+          variant='outlined'
+          color='primary'
+          size='small'
+          disableElevation
+          startIcon={<Icon>save</Icon>}
+          onClick={aoClocarNoBotaoSalvarEVoltar}
+        >Salvar e Voltar</Button>
+      )}
+      {mostrarBotaoApagar && (
+        <Button
+          variant='outlined'
+          color='primary'
+          size='small'
+          disableElevation
+          startIcon={<Icon>delete</Icon>}
+          onClick={aoClocarNoBotaoApagar}
+        >Apagar</Button>
+      )}
+      {mostrarBotaoNovo && (
+        <Button
+          variant='outlined'
+          color='primary'
+          size='small'
+          disableElevation
+          startIcon={<Icon>add</Icon>}
+          onClick={aoClocarNoBotaoNovo}
+        >{textoBotaoNovo}</Button>
+      )}
       <Divider 
         orientation='vertical' 
         flexItem 
         variant='middle'
       />
-      <Button
-        variant='outlined'
-        color='primary'
-        size='small'
-        disableElevation
-        startIcon={<Icon>arrow_back</Icon>}
-      >voltar</Button>
+      {mostrarBotaoVoltar && (
+        <Button
+          variant='outlined'
+          color='primary'
+          size='small'
+          disableElevation
+          startIcon={<Icon>arrow_back</Icon>}
+          onClick={aoClocarNoBotaoVoltar}
+        >voltar</Button>
+      )}
     </Box>
   );
 };

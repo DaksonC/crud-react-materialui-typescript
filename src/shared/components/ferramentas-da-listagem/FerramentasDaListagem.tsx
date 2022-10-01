@@ -6,6 +6,7 @@ import {
   TextField,
   useTheme
 } from "@mui/material";
+import { Environment } from "../../environment";
 
 interface IFerramentasDaListagemProps {
   textoDaBusca?: string;
@@ -42,7 +43,7 @@ export const FerramentasDaListagem = ({
 
         <TextField
           size='small'
-          placeholder='Pesquisar...'
+          placeholder={Environment.INPUT_DE_BUSCA}
           value={textoDaBusca}
           onChange={(e) => aoMostrarTextDeBusca?.(e.target.value)}
         />

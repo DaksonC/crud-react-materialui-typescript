@@ -11,7 +11,7 @@ import { Environment } from "../../environment";
 interface IFerramentasDaListagemProps {
   textoDaBusca?: string;
   mostrarInputBuscar?: boolean;
-  aoMostrarTextDeBusca?: (novoTexto: string) => void;
+  aoMudarTextoDeBusca?: (novoTexto: string) => void;
   textoBotaoNovo?: string;
   mostrarBotaoNovo?: boolean;
   aoClocarNoBotao?: () => void;
@@ -20,7 +20,7 @@ interface IFerramentasDaListagemProps {
 export const FerramentasDaListagem = ({
   textoDaBusca = '',
   mostrarInputBuscar = false,
-  aoMostrarTextDeBusca,
+  aoMudarTextoDeBusca,
   textoBotaoNovo = 'Novo',
   mostrarBotaoNovo = true,
   aoClocarNoBotao,
@@ -45,7 +45,7 @@ export const FerramentasDaListagem = ({
           size='small'
           placeholder={Environment.INPUT_DE_BUSCA}
           value={textoDaBusca}
-          onChange={(e) => aoMostrarTextDeBusca?.(e.target.value)}
+          onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)}
         />
       )}
       <Box

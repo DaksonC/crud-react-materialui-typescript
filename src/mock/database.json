@@ -1,19 +1,10 @@
 {
   "pessoas": [
     {
-      "nome": "João",
-      "idade": 20,
-      "sexo": "M"
-    },
-    {
-      "nome": "Maria",
-      "idade": 25,
-      "sexo": "F"
-    },
-    {
-      "nome": "José",
-      "idade": 30,
-      "sexo": "M"
+      "id": 1,
+      "email": "joão@teste.com",
+      "nomeCompleto": "João da Silva",
+      "cidadeId": 1
     }
   ]
 }

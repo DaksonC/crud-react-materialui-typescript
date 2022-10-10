@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { FerramentasDaListagem } from "../../shared/components";
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { useDebounce } from "../../shared/hooks";
 import { LayoutBaseDePagina } from "../../shared/layouts";
+import { FerramentasDaListagem } from "../../shared/components";
 import { IListagemPessoas, PessoasServices } from "../../shared/services/api/pessoas/PessoasServices";
 
 export const ListaDePessoas = () => {
@@ -42,6 +43,30 @@ export const ListaDePessoas = () => {
         />
       }
     >
+      <TableContainer 
+        component={Paper}
+        variant="outlined"
+        sx={{m: 1, width: "auto"}}
+      >
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Nome Completo</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Ações</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.id}>
+                <TableCell>{row.nomeCompleto}</TableCell>
+                <TableCell>{row.email}</TableCell>
+                <TableCell>Ações</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </LayoutBaseDePagina>
   );
 };

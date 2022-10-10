@@ -69,7 +69,11 @@ export const ListaDePessoas = () => {
           mostrarInputBuscar
           textoBotaoNovo="Nova Pessoa"
           textoDaBusca={busca}
-          aoMudarTextoDeBusca={(texto) => setSearchParams({ busca: texto, pagina: '1' }, { replace: true })}
+          aoMudarTextoDeBusca={
+            (texto) => setSearchParams({ busca: texto, pagina: '1' },
+            { replace: true })
+          }
+          aoClocarNoBotao={() => navigate("/pessoas/detalhe/nova")}
         />
       }
     >

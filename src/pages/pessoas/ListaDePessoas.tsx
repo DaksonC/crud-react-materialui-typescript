@@ -113,25 +113,30 @@ export const ListaDePessoas = () => {
             <caption>{Environment.LISTAGEM_VAZIA}</caption>
           )}
 
-          <TableFooter>
-          {isLoading && (
-            <TableCell colSpan={3}>
-                <LinearProgress variant="indeterminate" />
-            </TableCell>
-          )}
-          {totalCount > 0 && totalCount > Environment.LIMITE_DE_LINHAS && (
-            <TableRow >
+          <TableFooter >
+            {isLoading && (
               <TableCell colSpan={3}>
-                <Pagination 
-                  page={pagina}
-                  count={Math.ceil(totalCount / Environment.LIMITE_DE_LINHAS)} 
-                  onChange={
-                    (_, page) => setSearchParams({ busca, pagina: page.toString() }, 
-                    { replace: true })}
-                />
+                  <LinearProgress variant="indeterminate" />
               </TableCell>
-            </TableRow>
-          )}
+            )}
+            {totalCount > 0 && totalCount > Environment.LIMITE_DE_LINHAS && (
+              <TableRow >
+                <TableCell colSpan={3}>
+                  <Pagination 
+                    page={pagina}                    
+                    shape="rounded"
+                    variant="outlined"
+                    count={Math.ceil(totalCount / Environment.LIMITE_DE_LINHAS)} 
+                    onChange={
+                      (_, page) => setSearchParams({ busca, pagina: page.toString() }, 
+                      { replace: true })}
+                      showFirstButton 
+                      showLastButton
+                      color={"primary"}
+                  />
+                </TableCell>
+              </TableRow>
+            )}
           </TableFooter>
         </Table>
       </TableContainer>

@@ -5,6 +5,18 @@
       "email": "joão@teste.com",
       "nomeCompleto": "João da Silva",
       "cidadeId": 1
+    },
+    {
+      "id": 2,
+      "email": "maria@teste.com",
+      "nomeCompleto": "Maria da Silva",
+      "cidadeId": 2
+    },
+    {
+      "id": 3,
+      "email": "jose@teste.com",
+      "nomeCompleto": "José da Silva",
+      "cidadeId": 3
     }
   ]
 }

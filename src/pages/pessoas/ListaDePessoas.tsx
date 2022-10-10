@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { LinearProgress, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow } from "@mui/material";
 import { useDebounce } from "../../shared/hooks";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 import { FerramentasDaListagem } from "../../shared/components";
 import { IListagemPessoas, PessoasServices } from "../../shared/services/api/pessoas/PessoasServices";
+import { Environment } from "../../shared/environment";
 
 export const ListaDePessoas = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -47,7 +48,7 @@ export const ListaDePessoas = () => {
         component={Paper}
         variant="outlined"
         sx={{m: 1, width: "auto"}}
-      >
+        >
         <Table>
           <TableHead>
             <TableRow>
@@ -65,6 +66,18 @@ export const ListaDePessoas = () => {
               </TableRow>
             ))}
           </TableBody>
+
+          {totalCount === 0 && !isLoading && (
+            <caption>{Environment.LISTAGEM_VAZIA}</caption>
+          )}
+          
+          <TableFooter>
+          {isLoading && (
+            <TableCell colSpan={3}>
+                <LinearProgress variant="indeterminate" />
+            </TableCell>
+          )}
+          </TableFooter>
         </Table>
       </TableContainer>
     </LayoutBaseDePagina>

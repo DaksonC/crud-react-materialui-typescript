@@ -2,7 +2,7 @@ export const Environment = {
   /**
    * Define a quantidade de linhas a serem exibidas na tabela
    */
-  LIMITE_DE_LINHAS: 10,
+  LIMITE_DE_LINHAS: 5,
   /**
    * Placeholder para campos de busca
    */

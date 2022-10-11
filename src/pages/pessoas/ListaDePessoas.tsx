@@ -39,7 +39,7 @@ export const ListaDePessoas = () => {
           if (result instanceof Error) {
             alert(result.message);
           } else {
-            console.log(result);
+            // console.log(result);
             setRows(result.data);
             setTotalCount(result.totalCount);
           }
@@ -126,18 +126,21 @@ export const ListaDePessoas = () => {
             {totalCount > 0 && totalCount > Environment.LIMITE_DE_LINHAS && (
               <TableRow >
                 <TableCell colSpan={3}>
-                  <Pagination 
-                    page={pagina}                    
-                    shape="rounded"
-                    variant="outlined"
-                    count={Math.ceil(totalCount / Environment.LIMITE_DE_LINHAS)} 
-                    onChange={
-                      (_, page) => setSearchParams({ busca, pagina: page.toString() }, 
-                      { replace: true })}
+                    <Pagination 
                       showFirstButton 
                       showLastButton
                       color={"primary"}
-                  />
+                      defaultPage={3}
+                      boundaryCount={2}
+                      page={pagina}                    
+                      shape="rounded"
+                      variant="outlined"
+                      count={Math.ceil(totalCount / Environment.LIMITE_DE_LINHAS)} 
+                      onChange={
+                        (_, page) => setSearchParams({ busca, pagina: page.toString() }, 
+                        { replace: true })
+                      }
+                    />
                 </TableCell>
               </TableRow>
             )}

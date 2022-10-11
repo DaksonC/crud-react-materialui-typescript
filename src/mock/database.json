@@ -25,12 +25,6 @@
       "cidadeId": 1
     },
     {
-      "id": 8,
-      "email": "maria@teste.com",
-      "nomeCompleto": "Maria da Silva",
-      "cidadeId": 2
-    },
-    {
       "id": 9,
       "email": "jose@teste.com",
       "nomeCompleto": "José da Silva",

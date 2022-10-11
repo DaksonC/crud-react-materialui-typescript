@@ -26,8 +26,8 @@
     },
     {
       "id": 9,
+      "nomeCompleto": "José da Silvas",
       "email": "jose@teste.com",
-      "nomeCompleto": "José da Silva",
       "cidadeId": 3
     },
     {
@@ -137,6 +137,12 @@
       "email": "jose@teste.com",
       "nomeCompleto": "José da Silva",
       "cidadeId": 3
+    },
+    {
+      "id": 28,
+      "nomeCompleto": "dakson",
+      "email": "dak@teste.com",
+      "cidadeId": "1"
     }
   ]
 }

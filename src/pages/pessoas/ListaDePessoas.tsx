@@ -12,13 +12,18 @@ import {
   TableContainer, 
   TableFooter, 
   TableHead, 
-  TableRow 
+  TableRow, 
+  Theme, 
+  useMediaQuery
 } from "@mui/material";
-import { useDebounce } from "../../shared/hooks";
-import { LayoutBaseDePagina } from "../../shared/layouts";
+import { 
+  IListagemPessoas, 
+  PessoasServices 
+} from "../../shared/services/api/pessoas/PessoasServices";
 import { FerramentasDaListagem } from "../../shared/components";
-import { IListagemPessoas, PessoasServices } from "../../shared/services/api/pessoas/PessoasServices";
+import { LayoutBaseDePagina } from "../../shared/layouts";
 import { Environment } from "../../shared/environment";
+import { useDebounce } from "../../shared/hooks";
 
 export const ListaDePessoas = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -61,13 +66,15 @@ export const ListaDePessoas = () => {
     }
   };
 
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+
   return (
     <LayoutBaseDePagina
       titulo="Lista de Pessoas"
       barraDeFerramentas={
         <FerramentasDaListagem
           mostrarInputBuscar
-          textoBotaoNovo="Nova Pessoa"
+          textoBotaoNovo={smDown ? "Nova" : "Nova pessoa"}
           textoDaBusca={busca}
           aoMudarTextoDeBusca={
             (texto) => setSearchParams({ busca: texto, pagina: '1' },
@@ -119,9 +126,11 @@ export const ListaDePessoas = () => {
 
           <TableFooter >
             {isLoading && (
-              <TableCell colSpan={3}>
-                  <LinearProgress variant="indeterminate" />
-              </TableCell>
+              <TableRow>
+                <TableCell colSpan={3}>
+                    <LinearProgress variant="indeterminate" />
+                </TableCell>
+              </TableRow>
             )}
             {totalCount > 0 && totalCount > Environment.LIMITE_DE_LINHAS && (
               <TableRow >

@@ -43,7 +43,7 @@ export const FerramentasDaListagem = ({
 
         <TextField
           size='small'
-          placeholder={Environment.INPUT_DE_BUSCA}
+          label={Environment.INPUT_DE_BUSCA}
           value={textoDaBusca}
           onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)}
         />

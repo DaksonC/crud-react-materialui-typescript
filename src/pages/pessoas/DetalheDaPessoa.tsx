@@ -1,12 +1,12 @@
-import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
-import { FormHandles } from "@unform/core";
-import { Form } from "@unform/web";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { FerramentasDeDetalhes } from "../../shared/components";
-import { VTextField } from "../../shared/forms";
+import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
+
+import { VForm, VTextField } from "../../shared/forms";
 import { LayoutBaseDePagina } from "../../shared/layouts";
+import { FerramentasDeDetalhes } from "../../shared/components";
 import { PessoasServices } from "../../shared/services/api/pessoas/PessoasServices";
+import { useVForm } from "../../shared/hooks";
 
 interface IFormData {
   nomeCompleto: string;
@@ -17,8 +17,8 @@ interface IFormData {
 export const DetalheDaPessoa = () => {
   const { id = 'nova' } = useParams<'id'>();
   const navigate = useNavigate();
+  const { formRef, save, saveAndClose, isSaveAndClose } = useVForm();
 
-  const formRef = useRef<FormHandles>(null);
 
   const [isLoading, setIsLoading] = useState(false);
   const [nome, setNome] = useState('');
@@ -37,6 +37,12 @@ export const DetalheDaPessoa = () => {
             formRef.current?.setData(result);
           }
         });
+    } else {
+      formRef.current?.setData({
+        nomeCompleto: '',
+        email: '',
+        cidadeId: ''
+      });
     }
   }, [id]);
 
@@ -49,7 +55,11 @@ export const DetalheDaPessoa = () => {
           if (result instanceof Error) {
             alert(result.message);
           } else {
-            navigate(`/pessoas/detalhe/${result}`);
+            if (isSaveAndClose()) {
+              navigate('/pessoas');
+            } else {
+              navigate(`/pessoas/detalhe/${result}`);
+            }
           }
         });
     } else {
@@ -58,6 +68,12 @@ export const DetalheDaPessoa = () => {
           setIsLoading(false);
           if (result instanceof Error) {
             alert(result.message);
+          } else {
+            if (isSaveAndClose()) {
+              navigate('/pessoas');
+            } else {
+              setNome(dados.nomeCompleto);
+            }
           }
         });
     }
@@ -86,15 +102,15 @@ export const DetalheDaPessoa = () => {
           mostrarBotaoNovo={id !== 'nova'}
           mostrarBotaoApagar={id !== 'nova'}
 
-          aoClocarNoBotaoSalvar={() => formRef.current?.submitForm()}
-          aoClocarNoBotaoSalvarEVoltar={() => formRef.current?.submitForm()}
+          aoClocarNoBotaoSalvar={save}
+          aoClocarNoBotaoSalvarEVoltar={saveAndClose}
           aoClocarNoBotaoApagar={() => handleDelete(Number(id))}
           aoClocarNoBotaoVoltar={() => navigate('/pessoas')}
           aoClocarNoBotaoNovo={() => navigate('/pessoas/detalhe/nova')}
         />
       }
     >
-      <Form
+      <VForm
         ref={formRef}
         onSubmit={handleSave}
       >
@@ -176,7 +192,7 @@ export const DetalheDaPessoa = () => {
             </Grid>
           </Grid>
         </Box>
-      </Form>
+      </VForm>
     </LayoutBaseDePagina>
   );
 }

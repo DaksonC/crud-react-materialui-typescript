@@ -2,9 +2,9 @@
   "pessoas": [
     {
       "id": 3,
-      "nomeCompleto": "José de tal",
-      "email": "jose@teste.com",
-      "cidadeId": 3
+      "nomeCompleto": "José da Silva",
+      "email": "teste@teste.com",
+      "cidadeId": 1
     },
     {
       "id": 5,
@@ -13,160 +13,24 @@
       "cidadeId": 2
     },
     {
-      "id": 6,
-      "email": "jose@teste.com",
-      "nomeCompleto": "José da Silva",
-      "cidadeId": 3
+      "cidadeId": 1,
+      "email": "dakson@teste.com",
+      "nomeCompleto": "Dakson Cruz",
+      "id": 6
+    }
+  ],
+  "cidades": [
+    {
+      "id": 1,
+      "nome": "São Paulo"
     },
     {
-      "id": 7,
-      "email": "joão@teste.com",
-      "nomeCompleto": "João da Silva",
-      "cidadeId": 1
+      "id": 2,
+      "nome": "Rio de Janeiro"
     },
     {
-      "id": 9,
-      "nomeCompleto": "José da Silvas",
-      "email": "jose@teste.com",
-      "cidadeId": 3
-    },
-    {
-      "id": 10,
-      "email": "joão@teste.com",
-      "nomeCompleto": "João da Silva",
-      "cidadeId": 1
-    },
-    {
-      "id": 11,
-      "email": "maria@teste.com",
-      "nomeCompleto": "Maria da Silva",
-      "cidadeId": 2
-    },
-    {
-      "id": 12,
-      "email": "jose@teste.com",
-      "nomeCompleto": "José da Silva",
-      "cidadeId": 3
-    },
-    {
-      "id": 13,
-      "email": "joão@teste.com",
-      "nomeCompleto": "João da Silva",
-      "cidadeId": 1
-    },
-    {
-      "id": 14,
-      "email": "maria@teste.com",
-      "nomeCompleto": "Maria da Silva",
-      "cidadeId": 2
-    },
-    {
-      "id": 15,
-      "email": "jose@teste.com",
-      "nomeCompleto": "José da Silva",
-      "cidadeId": 3
-    },
-    {
-      "id": 16,
-      "email": "jose@teste.com",
-      "nomeCompleto": "José da Silva",
-      "cidadeId": 3
-    },
-    {
-      "id": 17,
-      "email": "maria@teste.com",
-      "nomeCompleto": "Maria da Silva",
-      "cidadeId": 2
-    },
-    {
-      "id": 18,
-      "email": "jose@teste.com",
-      "nomeCompleto": "José da Silva",
-      "cidadeId": 3
-    },
-    {
-      "id": 19,
-      "email": "joão@teste.com",
-      "nomeCompleto": "João da Silva",
-      "cidadeId": 1
-    },
-    {
-      "id": 20,
-      "email": "maria@teste.com",
-      "nomeCompleto": "Maria da Silva",
-      "cidadeId": 2
-    },
-    {
-      "id": 21,
-      "email": "jose@teste.com",
-      "nomeCompleto": "José da Silva",
-      "cidadeId": 3
-    },
-    {
-      "id": 22,
-      "email": "joão@teste.com",
-      "nomeCompleto": "João da Silva",
-      "cidadeId": 1
-    },
-    {
-      "id": 23,
-      "email": "maria@teste.com",
-      "nomeCompleto": "Maria da Silva",
-      "cidadeId": 2
-    },
-    {
-      "id": 24,
-      "email": "jose@teste.com",
-      "nomeCompleto": "José da Silva",
-      "cidadeId": 3
-    },
-    {
-      "id": 25,
-      "email": "joão@teste.com",
-      "nomeCompleto": "João da Silva",
-      "cidadeId": 1
-    },
-    {
-      "id": 26,
-      "email": "maria@teste.com",
-      "nomeCompleto": "Maria da Silva",
-      "cidadeId": 2
-    },
-    {
-      "id": 27,
-      "email": "jose@teste.com",
-      "nomeCompleto": "José da Silva",
-      "cidadeId": 3
-    },
-    {
-      "id": 29,
-      "nomeCompleto": "dakson cruz",
-      "email": "teste@teste.com",
-      "cidadeId": "1"
-    },
-    {
-      "nomeCompleto": "Ana de Tal",
-      "email": "ana@teste.com",
-      "cidadeId": "1",
-      "id": 30
-    },
-    {
-      "nomeCompleto": "teste de tal",
-      "email": "dak@teste.com",
-      "cidadeId": "1",
-      "id": 31
-    },
-    {
-      "id": 32,
-      "nomeCompleto": "dakson",
-      "email": "d@teste.com",
-      "cidadeId": "2"
-    },
-    {
-      "nomeCompleto": "cintia",
-      "email": "cintia@teste.com",
-      "cidadeId": "2",
-      "id": 33
+      "id": 3,
+      "nome": "Belo Horizonte"
     }
   ]
 }

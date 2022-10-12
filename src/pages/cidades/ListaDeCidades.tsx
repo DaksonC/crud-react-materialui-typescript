@@ -17,17 +17,17 @@ import {
   useMediaQuery
 } from "@mui/material";
 import { 
-  IListagemPessoas, 
-  PessoasServices 
-} from "../../shared/services/api/pessoas/PessoasServices";
+  IListagemCidades, 
+  CidadesServices 
+} from "../../shared/services/api/cidades/CidadesServices";
 import { FerramentasDaListagem } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 import { Environment } from "../../shared/environment";
 import { useDebounce } from "../../shared/hooks";
 
-export const ListaDePessoas = () => {
+export const ListaDeCidades = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [rows, setRows] = useState<IListagemPessoas[]>([]);
+  const [rows, setRows] = useState<IListagemCidades[]>([]);
   const [totalCount, setTotalCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const { debounce } = useDebounce();
@@ -38,7 +38,7 @@ export const ListaDePessoas = () => {
   useEffect(() => {
     setIsLoading(true);
     debounce(() => {
-      PessoasServices.getAll(pagina, busca)
+      CidadesServices.getAll(pagina, busca)
         .then((result) => {
           setIsLoading(false);
           if (result instanceof Error) {
@@ -53,7 +53,7 @@ export const ListaDePessoas = () => {
 
   const handleDelete = (id: number) => {
     if (window.confirm("Deseja realmente excluir?")) {
-      PessoasServices.deleteById(id)
+      CidadesServices.deleteById(id)
         .then((result) => {
           if (result instanceof Error) {
             alert(result.message);
@@ -69,17 +69,17 @@ export const ListaDePessoas = () => {
 
   return (
     <LayoutBaseDePagina
-      titulo="Lista de Pessoas"
+      titulo="Lista de Cidades"
       barraDeFerramentas={
         <FerramentasDaListagem
           mostrarInputBuscar
-          textoBotaoNovo={smDown ? "Nova" : "Nova pessoa"}
+          textoBotaoNovo={smDown ? "Nova" : "Nova cidade"}
           textoDaBusca={busca}
           aoMudarTextoDeBusca={
             (texto) => setSearchParams({ busca: texto, pagina: '1' },
             { replace: true })
           }
-          aoClocarNoBotao={() => navigate("/pessoas/detalhe/nova")}
+          aoClocarNoBotao={() => navigate("/cidades/detalhe/nova")}
         />
       }
     >
@@ -91,20 +91,18 @@ export const ListaDePessoas = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Nome Completo</TableCell>
-              <TableCell>Email</TableCell>
+              <TableCell >Nome</TableCell>
               <TableCell>Ações</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.id}>
-                <TableCell>{row.nomeCompleto}</TableCell>
-                <TableCell>{row.email}</TableCell>
+                <TableCell>{row.nome}</TableCell>
                 <TableCell>
                   <IconButton 
                     size="small"  
-                    onClick={() => navigate(`/pessoas/detalhe/${row.id}`)}
+                    onClick={() => navigate(`/cidades/detalhe/${row.id}`)}
                   >
                     <Icon>edit</Icon> 
                   </IconButton>

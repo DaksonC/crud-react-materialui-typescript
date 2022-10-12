@@ -1,3 +1,4 @@
+import * as yup from "yup";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
@@ -13,6 +14,16 @@ interface IFormData {
   email: string;
   cidadeId: number;
 }
+
+const schema: yup.SchemaOf<IFormData> = yup.object().shape({
+  nomeCompleto: 
+    yup.string()
+    .required("Nome completo é obrigatório")
+    .min(3, "Nome completo deve ter no mínimo 3 caracteres"),
+
+  email: yup.string().email("Email inválido").required("Email é obrigatório"),
+  cidadeId: yup.number().required("Cidade é obrigatória"),
+});
 
 export const DetalheDaPessoa = () => {
   const { id = 'nova' } = useParams<'id'>();
@@ -47,36 +58,49 @@ export const DetalheDaPessoa = () => {
   }, [id]);
 
   const handleSave = (dados: IFormData) => {
-    setIsLoading(true);
-    if (id === 'nova') {
-      PessoasServices.create(dados)
-        .then((result) => {
-          setIsLoading(false);
-          if (result instanceof Error) {
-            alert(result.message);
-          } else {
-            if (isSaveAndClose()) {
-              navigate('/pessoas');
+    schema.validate(dados, { abortEarly: false })
+    .then((dadosValidados) => {
+
+      setIsLoading(true);
+      if (id === 'nova') {
+        PessoasServices.create(dadosValidados)
+          .then((result) => {
+            setIsLoading(false);
+            if (result instanceof Error) {
+              alert(result.message);
             } else {
-              navigate(`/pessoas/detalhe/${result}`);
+              if (isSaveAndClose()) {
+                navigate('/pessoas');
+              } else {
+                navigate(`/pessoas/detalhe/${result}`);
+              }
             }
-          }
-        });
-    } else {
-      PessoasServices.updateById(Number(id), { id: Number(id), ...dados })
-        .then((result) => {
-          setIsLoading(false);
-          if (result instanceof Error) {
-            alert(result.message);
-          } else {
-            if (isSaveAndClose()) {
-              navigate('/pessoas');
+          });
+      } else {
+        PessoasServices.updateById(Number(id), { id: Number(id), ...dadosValidados })
+          .then((result) => {
+            setIsLoading(false);
+            if (result instanceof Error) {
+              alert(result.message);
             } else {
-              setNome(dados.nomeCompleto);
+              if (isSaveAndClose()) {
+                navigate('/pessoas');
+              } else {
+                setNome(dados.nomeCompleto);
+              }
             }
-          }
-        });
-    }
+          });
+        }
+    })
+    .catch((err: yup.ValidationError) => {
+      const validateErrors: {[ key: string ]: string} = {};
+      err.inner.forEach((error) => {
+        if (!error.path) return;
+        validateErrors[error.path] = error.message;
+      });
+      formRef.current?.setErrors(validateErrors);
+    });
+
   };
 
   const handleDelete = (id: number) => {

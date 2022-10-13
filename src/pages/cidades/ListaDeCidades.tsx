@@ -24,6 +24,7 @@ import { FerramentasDaListagem } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 import { Environment } from "../../shared/environment";
 import { useDebounce } from "../../shared/hooks";
+import { green, red } from "@mui/material/colors";
 
 export const ListaDeCidades = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -104,13 +105,13 @@ export const ListaDeCidades = () => {
                     size="small"  
                     onClick={() => navigate(`/cidades/detalhe/${row.id}`)}
                   >
-                    <Icon>edit</Icon> 
+                    <Icon sx={{ color: green[200] }} >edit</Icon> 
                   </IconButton>
                   <IconButton 
                     size="small"
                     onClick={() => handleDelete(row.id)}
                   >
-                    <Icon>delete</Icon> 
+                    <Icon sx={{ color: red[200] }} >delete</Icon> 
                   </IconButton>
                 </TableCell>
               </TableRow>

@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 
+import { useVForm } from "../../shared/hooks";
 import { VForm, VTextField } from "../../shared/forms";
 import { LayoutBaseDePagina } from "../../shared/layouts";
-import { FerramentasDeDetalhes } from "../../shared/components";
+import { AutoCompleteCidades, FerramentasDeDetalhes } from "../../shared/components";
 import { PessoasServices } from "../../shared/services/api/pessoas/PessoasServices";
-import { useVForm } from "../../shared/hooks";
 
 interface IFormData {
   nomeCompleto: string;
@@ -52,7 +52,7 @@ export const DetalheDaPessoa = () => {
       formRef.current?.setData({
         nomeCompleto: '',
         email: '',
-        cidadeId: ''
+        cidadeId: undefined,
       });
     }
   }, [id]);
@@ -206,12 +206,7 @@ export const DetalheDaPessoa = () => {
                 item
                 xs={12} sm={12} md={6} lg={4} xl={2}
               >
-                <VTextField
-                  fullWidth
-                  name="cidadeId"
-                  label="Cidade"
-                  disabled={isLoading}
-                />
+                <AutoCompleteCidades isExternal={isLoading} />
               </Grid>
             </Grid>
           </Grid>

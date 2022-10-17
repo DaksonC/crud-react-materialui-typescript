@@ -1,9 +1,8 @@
 import axios from 'axios';
-import { Environment } from '../../../environment';
 import { errorInterceptor, responseInterceptor } from './interceptor';
 
 const api = axios.create({
-  baseURL: Environment.URL_BASE,
+  baseURL: import.meta.env.VITE_URL_BASE,
 });
 
 api.interceptors.response.use(

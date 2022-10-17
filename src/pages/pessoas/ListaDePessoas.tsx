@@ -16,13 +16,9 @@ import {
   Theme, 
   useMediaQuery
 } from "@mui/material";
-import { 
-  IListagemPessoas, 
-  PessoasServices 
-} from "../../shared/services/api/pessoas/PessoasServices";
+import { IListagemPessoas, PessoasServices } from "../../shared/services/api/pessoas/PessoasServices";
 import { FerramentasDaListagem } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts";
-import { Environment } from "../../shared/environment";
 import { useDebounce } from "../../shared/hooks";
 import { green, red } from "@mui/material/colors";
 
@@ -121,7 +117,7 @@ export const ListaDePessoas = () => {
           </TableBody>
 
           {totalCount === 0 && !isLoading && (
-            <caption>{Environment.LISTAGEM_VAZIA}</caption>
+            <caption>{import.meta.env.VITE_LISTAGEM_VAZIA}</caption>
           )}
 
           <TableFooter >
@@ -132,7 +128,7 @@ export const ListaDePessoas = () => {
                 </TableCell>
               </TableRow>
             )}
-            {totalCount > 0 && totalCount > Environment.LIMITE_DE_LINHAS && (
+            {totalCount > 0 && totalCount > import.meta.env.VITE_LIMITE_DE_LINHAS && (
               <TableRow >
                 <TableCell colSpan={3}>
                     <Pagination 
@@ -144,7 +140,7 @@ export const ListaDePessoas = () => {
                       page={pagina}                    
                       shape="rounded"
                       variant="outlined"
-                      count={Math.ceil(totalCount / Environment.LIMITE_DE_LINHAS)} 
+                      count={Math.ceil(totalCount / import.meta.env.VITE_LIMITE_DE_LINHAS)} 
                       onChange={
                         (_, page) => setSearchParams({ busca, pagina: page.toString() }, 
                         { replace: true })

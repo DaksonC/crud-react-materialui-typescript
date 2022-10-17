@@ -1,4 +1,3 @@
-import { Environment } from '../../../environment';
 import { api } from '../axios-config';
 
 export interface IListagemPessoas {
@@ -22,14 +21,14 @@ type TPessoasComTotalCount = {
 
 const getAll = async (page = 1, filter = ''): Promise<TPessoasComTotalCount | Error> => {
   try {
-    const url = `/pessoas?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nomeCompleto_like=${filter}`;
+    const url = `/pessoas?_page=${page}&_limit=${import.meta.env.VITE_LIMITE_DE_LINHAS}&nomeCompleto_like=${filter}`;
 
     const { data, headers } = await api.get(url);
 
     if (data) {
       return {
         data,
-        totalCount: Number(headers['x-total-count'] || Environment.LIMITE_DE_LINHAS),
+        totalCount: Number(headers['x-total-count'] || import.meta.env.VITE_LIMITE_DE_LINHAS),
       };
     }
 

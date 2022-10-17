@@ -5,8 +5,7 @@ import {
   CardActions, 
   CardContent, 
   CircularProgress, 
-  TextField, 
-  Typography 
+  TextField
 } from "@mui/material";
 import * as yup from 'yup';
 import { useState } from "react";
@@ -28,7 +27,7 @@ export const Login = ({ children }: ILoginProps) => {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = () => {
     setIsLoading(true);
@@ -74,7 +73,7 @@ export const Login = ({ children }: ILoginProps) => {
               onChange={(e) => setEmail(e.target.value)}
               error={!!emailError}
               helperText={emailError}
-              onKeyDown={(e) => setEmailError('')}
+              onKeyDown={() => setEmailError('')}
               disabled={isLoading}
             />
             <TextField 
@@ -85,7 +84,7 @@ export const Login = ({ children }: ILoginProps) => {
               onChange={(e) => setPassword(e.target.value)}
               error={!!passwordError}
               helperText={passwordError}
-              onKeyDown={(e) => setPasswordError('')}
+              onKeyDown={() => setPasswordError('')}
               disabled={isLoading}
             />
           </Box>

@@ -18,3 +18,4 @@ CRUD de pessoas e cidades, com o objetivo de fixar os conceitos envolvidos. Util
 - Json-server
 
 ## Vídeo demostrativo
+[linkedin](https://www.linkedin.com/feed/update/urn:li:activity:6987900584058105856/)

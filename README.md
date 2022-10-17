@@ -3,8 +3,8 @@ CRUD de pessoas e cidades, com o objetivo de fixar os conceitos envolvidos. Util
 
 ## Instalação e execução do projeto
 
--         $ git clone https://github.com/DaksonC/desafio-acelera-jovem.git
--         $ cd desafio-acelera-jovem
+-         $ git clone https://github.com/DaksonC/crud-react-materialui-typescript.git
+-         $ cd crud-react-materialui-typescript
 -         $ yarn
 -         $ yarn dev
 

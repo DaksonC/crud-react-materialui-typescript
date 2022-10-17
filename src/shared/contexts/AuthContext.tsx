@@ -1,4 +1,4 @@
-import { createContext, useCallback, useEffect, useMemo, useState } from "react"
+import { createContext, useCallback, useEffect, useMemo, useState, useContext} from "react"
 import { AuthService } from "../services/api/auth/AuthService";
 
 interface IAuthContextData {
@@ -50,3 +50,5 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
     </AuthContext.Provider>
   );
 };
+
+export const useAuthContext = () => useContext(AuthContext);

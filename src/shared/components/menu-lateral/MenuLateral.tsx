@@ -12,7 +12,7 @@ import {
   Box
 } from '@mui/material';
 import { LinkMenu } from './LinkMenu';
-import { useDrawerContext, useThemeContext } from '../../contexts';
+import { useAuthContext, useDrawerContext, useThemeContext } from '../../contexts';
 
 interface MenuLateralProps {
   children: React.ReactNode;
@@ -23,6 +23,7 @@ export const MenuLateral = ({ children }: MenuLateralProps) => {
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
   const { toggleTheme } = useThemeContext();
+  const { logout } = useAuthContext();
 
   return(
     <>
@@ -77,6 +78,14 @@ export const MenuLateral = ({ children }: MenuLateralProps) => {
                 ? (<ListItemText primary='Modo claro' />)
                 : (<ListItemText primary='Modo escuro' />)
               }
+            </ListItemButton>
+          </Box>
+          <Box>
+            <ListItemButton onClick={logout}>
+              <ListItemIcon>
+                <Icon>logout</Icon>
+              </ListItemIcon>
+              <ListItemText primary='Sair' />
             </ListItemButton>
           </Box>
         </Box>

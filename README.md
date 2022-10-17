@@ -16,3 +16,5 @@ CRUD de pessoas e cidades, com o objetivo de fixar os conceitos envolvidos. Util
 - Axios
 - Vite
 - Json-server
+
+## Vídeo demostrativo

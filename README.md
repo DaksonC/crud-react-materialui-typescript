@@ -8,7 +8,7 @@ CRUD de pessoas e cidades, com o objetivo de fixar os conceitos envolvidos. Util
 -         $ yarn
 -         $ yarn dev
 
-## tecnologias
+## Tecnologias
 
 - React
 - TypeScript
@@ -16,6 +16,7 @@ CRUD de pessoas e cidades, com o objetivo de fixar os conceitos envolvidos. Util
 - Axios
 - Vite
 - Json-server
+- UnForm
 
 ## Vídeo demostrativo
 [linkedin](https://www.linkedin.com/feed/update/urn:li:activity:6987900584058105856/)

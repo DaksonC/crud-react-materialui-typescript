@@ -3,10 +3,10 @@ CRUD de pessoas e cidades, com o objetivo de fixar os conceitos envolvidos. Util
 
 ## Instalação e execução do projeto
 
--         $ git clone https://github.com/DaksonC/crud-react-materialui-typescript.git
--         $ cd crud-react-materialui-typescript
--         $ yarn
--         $ yarn dev
+-          git clone https://github.com/DaksonC/crud-react-materialui-typescript.git
+-          cd crud-react-materialui-typescript
+-          yarn
+-          yarn dev
 
 ## Tecnologias
 

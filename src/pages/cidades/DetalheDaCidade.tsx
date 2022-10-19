@@ -4,9 +4,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 
 import { useVForm } from "../../shared/hooks";
+import { IFormData } from "../../shared/interfaces";
 import { VForm, VTextField } from "../../shared/forms";
 import { LayoutBaseDePagina } from "../../shared/layouts";
-import { IFormData } from "../../shared/services/interfaces";
 import { FerramentasDeDetalhes } from "../../shared/components";
 import { CidadesServices } from "../../shared/services/api/cidades/CidadesServices";
 

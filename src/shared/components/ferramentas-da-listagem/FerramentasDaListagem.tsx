@@ -6,7 +6,7 @@ import {
   TextField,
   useTheme
 } from "@mui/material";
-import { IFerramentasDaListagemProps } from "../../services/interfaces";
+import { IFerramentasDaListagemProps } from "../../interfaces";
 
 export const FerramentasDaListagem = ({
   textoDaBusca = '',

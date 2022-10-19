@@ -19,8 +19,8 @@ import {
 import { useDebounce } from "../../shared/hooks";
 import { green, red } from "@mui/material/colors";
 import { LayoutBaseDePagina } from "../../shared/layouts";
+import { IListagemCidades } from "../../shared/interfaces";
 import { FerramentasDaListagem } from "../../shared/components";
-import { IListagemCidades } from "../../shared/services/interfaces";
 import { CidadesServices } from "../../shared/services/api/cidades/CidadesServices";
 
 export const ListaDeCidades = () => {

@@ -6,7 +6,7 @@ import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 import { useVForm } from "../../shared/hooks";
 import { VForm, VTextField } from "../../shared/forms";
 import { LayoutBaseDePagina } from "../../shared/layouts";
-import { IFormDataPessoas } from "../../shared/services/interfaces";
+import { IFormDataPessoas } from "../../shared/interfaces";
 import { PessoasServices } from "../../shared/services/api/pessoas/PessoasServices";
 import { AutoCompleteCidades, FerramentasDeDetalhes } from "../../shared/components";
 

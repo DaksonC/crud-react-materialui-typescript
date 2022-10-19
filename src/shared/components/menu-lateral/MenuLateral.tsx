@@ -12,7 +12,7 @@ import {
   Box
 } from '@mui/material';
 import { LinkMenu } from './LinkMenu';
-import { IChildrenProps } from '../../services/interfaces';
+import { IChildrenProps } from '../../interfaces';
 import { useAuthContext, useDrawerContext, useThemeContext } from '../../contexts';
 
 export const MenuLateral = ({ children }: IChildrenProps) => {

@@ -1,6 +1,6 @@
 import { createContext, useCallback, useEffect, useMemo, useState, useContext} from "react"
 import { AuthService } from "../services/api/auth/AuthService";
-import { IAuthContextData, IChildrenProps } from "../services/interfaces";
+import { IAuthContextData, IChildrenProps } from "../interfaces";
 
 export const AuthContext = createContext({} as IAuthContextData);
 

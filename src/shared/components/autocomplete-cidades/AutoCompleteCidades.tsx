@@ -5,7 +5,7 @@ import { useDebounce } from "../../hooks";
 import { CidadesServices } from "../../services/api/cidades/CidadesServices";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useField } from "@unform/core";
-import { IAutoCompleteCidadesProps, TAutocompleteOptions } from "../../services/interfaces";
+import { IAutoCompleteCidadesProps, TAutocompleteOptions } from "../../interfaces";
 
 export const AutoCompleteCidades = ({isExternal = false}: IAutoCompleteCidadesProps) => {
   const {

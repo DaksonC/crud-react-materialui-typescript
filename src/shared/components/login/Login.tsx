@@ -10,7 +10,7 @@ import {
 import * as yup from 'yup';
 import { useState } from "react";
 import { useAuthContext } from "../../contexts";
-import { IChildrenProps } from "../../services/interfaces";
+import { IChildrenProps } from "../../interfaces";
 
 const loginScheme = yup.object().shape({
   email: yup.string().email().required('O email é obrigatório!'),

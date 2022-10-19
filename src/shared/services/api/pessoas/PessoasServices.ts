@@ -1,4 +1,5 @@
-import { IDetalhePessoa, TPessoasComTotalCount } from '../../interfaces';
+
+import { IDetalhePessoa, TPessoasComTotalCount } from '../../../interfaces';
 import { api } from '../axios-config';
 
 const getAll = async (page = 1, filter = ''): Promise<TPessoasComTotalCount | Error> => {

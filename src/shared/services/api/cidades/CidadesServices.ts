@@ -1,4 +1,5 @@
-import { IDetalheCidade, TCidadesComTotalCount } from '../../interfaces';
+
+import { IDetalheCidade, TCidadesComTotalCount } from '../../../interfaces';
 import { api } from '../axios-config';
 
 const getAll = async (page = 1, filter = ''): Promise<TCidadesComTotalCount | Error> => {

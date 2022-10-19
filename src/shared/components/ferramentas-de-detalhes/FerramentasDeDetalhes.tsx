@@ -10,7 +10,7 @@ import {
   useMediaQuery, 
   Theme 
   } from "@mui/material";
-import { IFerramentasDeDetalhesProps } from "../../services/interfaces";
+import { IFerramentasDeDetalhesProps } from "../../interfaces";
 
 export const FerramentasDeDetalhes = ({
   textoBotaoNovo = 'Novo',

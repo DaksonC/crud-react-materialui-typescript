@@ -1,4 +1,4 @@
-import { IAuth } from "../../interfaces";
+import { IAuth } from "../../../interfaces";
 import { api } from "../axios-config";
 
 const auth = async (email: string, password: string): Promise<IAuth | Error> => {

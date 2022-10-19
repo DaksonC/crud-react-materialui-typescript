@@ -1,7 +1,13 @@
-import { createContext, useCallback, useMemo, useState, useContext } from 'react';
+import { 
+  createContext, 
+  useCallback, 
+  useMemo, 
+  useState, 
+  useContext 
+} from 'react';
 import { Box, ThemeProvider} from '@mui/material';
 import { DarkTheme, LightTheme } from '../themes';
-import { IChildrenProps, IThemeContextProps } from '../services/interfaces';
+import { IChildrenProps, IThemeContextProps } from '../interfaces';
 
 export const ThemeContext = createContext({} as IThemeContextProps);
 

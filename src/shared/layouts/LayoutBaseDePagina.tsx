@@ -8,7 +8,7 @@ import {
   Box
 } from '@mui/material';
 import { useDrawerContext } from '../contexts';
-import { ILayoutBaseDePaginaProps } from '../services/interfaces';
+import { ILayoutBaseDePaginaProps } from '../interfaces';
 
 export const LayoutBaseDePagina = (
   { 

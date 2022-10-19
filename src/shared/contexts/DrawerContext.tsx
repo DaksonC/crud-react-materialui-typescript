@@ -1,5 +1,5 @@
 import { createContext, useCallback, useState, useContext } from 'react';
-import { IChildrenProps, IDrawerContextProps, IDrawerOptions } from '../services/interfaces';
+import { IChildrenProps, IDrawerContextProps, IDrawerOptions } from '../interfaces';
 
 export const DrawerContext = createContext({} as IDrawerContextProps);
 

@@ -1,19 +1,10 @@
 import { createContext, useCallback, useEffect, useMemo, useState, useContext} from "react"
 import { AuthService } from "../services/api/auth/AuthService";
-
-interface IAuthContextData {
-  logout: () => void;
-  isAuthenticated: boolean;
-  login: (email: string, password: string) => Promise<string | void>;
-}
-
-interface IAuthProviderProps {
-  children: React.ReactNode;
-}
+import { IAuthContextData, IChildrenProps } from "../services/interfaces";
 
 export const AuthContext = createContext({} as IAuthContextData);
 
-export const AuthProvider = ({ children }: IAuthProviderProps) => {
+export const AuthProvider = ({ children }: IChildrenProps) => {
   const [accessToken, setAccessToken] = useState<string>();
 
   useEffect(() => {

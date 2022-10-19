@@ -8,13 +8,7 @@ import {
   Box
 } from '@mui/material';
 import { useDrawerContext } from '../contexts';
-
-interface ILayoutBaseDePaginaProps {
-  titulo: string;
-  children: React.ReactNode;
-  barraDeFerramentas?: React.ReactNode;
-}
-
+import { ILayoutBaseDePaginaProps } from '../services/interfaces';
 
 export const LayoutBaseDePagina = (
   { 

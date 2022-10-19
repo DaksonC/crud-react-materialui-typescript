@@ -10,17 +10,14 @@ import {
 import * as yup from 'yup';
 import { useState } from "react";
 import { useAuthContext } from "../../contexts";
-
-interface ILoginProps {
-  children: React.ReactNode;
-}
+import { IChildrenProps } from "../../services/interfaces";
 
 const loginScheme = yup.object().shape({
   email: yup.string().email().required('O email é obrigatório!'),
   password: yup.string().required().min(6, 'A senha deve ter no mínimo 6 caracteres!'),
 })
 
-export const Login = ({ children }: ILoginProps) => {
+export const Login = ({ children }: IChildrenProps) => {
   const { isAuthenticated, login } = useAuthContext();
 
   const [email, setEmail] = useState('');

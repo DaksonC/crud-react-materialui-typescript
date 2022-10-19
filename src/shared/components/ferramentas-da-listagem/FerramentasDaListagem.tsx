@@ -6,15 +6,7 @@ import {
   TextField,
   useTheme
 } from "@mui/material";
-
-interface IFerramentasDaListagemProps {
-  textoDaBusca?: string;
-  mostrarInputBuscar?: boolean;
-  aoMudarTextoDeBusca?: (novoTexto: string) => void;
-  textoBotaoNovo?: string;
-  mostrarBotaoNovo?: boolean;
-  aoClocarNoBotao?: () => void;
-}
+import { IFerramentasDaListagemProps } from "../../services/interfaces";
 
 export const FerramentasDaListagem = ({
   textoDaBusca = '',

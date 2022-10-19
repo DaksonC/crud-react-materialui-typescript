@@ -8,20 +8,20 @@
     },
     {
       "id": 5,
-      "nomeCompleto": "Maria da Silva",
+      "nomeCompleto": "Maria Aparecida",
       "email": "maria@teste.com",
-      "cidadeId": 2
+      "cidadeId": 3
     },
     {
-      "id": 6,
       "nomeCompleto": "Dakson Cruz",
-      "email": "dakson@teste.com",
-      "cidadeId": 4
+      "email": "teste@teste.com",
+      "cidadeId": 4,
+      "id": 6
     },
     {
-      "nomeCompleto": "Cintia Camargo",
-      "email": "cintia@teste.com",
-      "cidadeId": 4,
+      "nomeCompleto": "Fulano de Tal",
+      "email": "teste@teste.com",
+      "cidadeId": 2,
       "id": 7
     }
   ],

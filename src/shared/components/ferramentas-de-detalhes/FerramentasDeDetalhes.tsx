@@ -10,28 +10,7 @@ import {
   useMediaQuery, 
   Theme 
   } from "@mui/material";
-
-interface IFerramentasDeDetalhesProps {
-  textoBotaoNovo?: string;
-
-  mostrarBotaoNovo?: boolean;
-  mostrarBotaoVoltar?: boolean;
-  mostrarBotaoApagar?: boolean;
-  mostrarBotaoSalvar?: boolean;
-  mostrarBotaoSalvarEVoltar?: boolean;
-
-  mostrarBotaoNovoCarregando?: boolean;
-  mostrarBotaoVoltarCarregando?: boolean;
-  mostrarBotaoApagarCarregando?: boolean;
-  mostrarBotaoSalvarCarregando?: boolean;
-  mostrarBotaoSalvarEVoltarCarregando?: boolean;
-
-  aoClocarNoBotaoNovo?: () => void;
-  aoClocarNoBotaoVoltar?: () => void;
-  aoClocarNoBotaoApagar?: () => void;
-  aoClocarNoBotaoSalvar?: () => void;
-  aoClocarNoBotaoSalvarEVoltar?: () => void;
-}
+import { IFerramentasDeDetalhesProps } from "../../services/interfaces";
 
 export const FerramentasDeDetalhes = ({
   textoBotaoNovo = 'Novo',

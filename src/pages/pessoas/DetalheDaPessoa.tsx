@@ -6,16 +6,12 @@ import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 import { useVForm } from "../../shared/hooks";
 import { VForm, VTextField } from "../../shared/forms";
 import { LayoutBaseDePagina } from "../../shared/layouts";
-import { AutoCompleteCidades, FerramentasDeDetalhes } from "../../shared/components";
+import { IFormDataPessoas } from "../../shared/services/interfaces";
 import { PessoasServices } from "../../shared/services/api/pessoas/PessoasServices";
+import { AutoCompleteCidades, FerramentasDeDetalhes } from "../../shared/components";
 
-interface IFormData {
-  nomeCompleto: string;
-  email: string;
-  cidadeId: number;
-}
 
-const schema: yup.SchemaOf<IFormData> = yup.object().shape({
+const schema: yup.SchemaOf<IFormDataPessoas> = yup.object().shape({
   nomeCompleto: 
     yup.string()
     .required("Nome completo é obrigatório")
@@ -57,7 +53,7 @@ export const DetalheDaPessoa = () => {
     }
   }, [id]);
 
-  const handleSave = (dados: IFormData) => {
+  const handleSave = (dados: IFormDataPessoas) => {
     schema.validate(dados, { abortEarly: false })
     .then((dadosValidados) => {
 

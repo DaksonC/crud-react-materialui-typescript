@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Box, Card, CardContent, CircularProgress, Grid, Typography } from '@mui/material';
 
-import { FerramentasDeDetalhes } from '../../shared/components';
 import { LayoutBaseDePagina } from '../../shared/layouts';
+import { FerramentasDeDetalhes } from '../../shared/components';
 import { CidadesServices } from '../../shared/services/api/cidades/CidadesServices';
 import { PessoasServices } from '../../shared/services/api/pessoas/PessoasServices';
 

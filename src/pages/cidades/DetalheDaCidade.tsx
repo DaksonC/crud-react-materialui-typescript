@@ -3,15 +3,13 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 
+import { useVForm } from "../../shared/hooks";
 import { VForm, VTextField } from "../../shared/forms";
 import { LayoutBaseDePagina } from "../../shared/layouts";
+import { IFormData } from "../../shared/services/interfaces";
 import { FerramentasDeDetalhes } from "../../shared/components";
 import { CidadesServices } from "../../shared/services/api/cidades/CidadesServices";
-import { useVForm } from "../../shared/hooks";
 
-interface IFormData {
-  nome: string;
-}
 
 const schema: yup.SchemaOf<IFormData> = yup.object().shape({
   nome: yup.string().required("Campo obrigatório").min(3, "Mínimo de 3 caracteres"),

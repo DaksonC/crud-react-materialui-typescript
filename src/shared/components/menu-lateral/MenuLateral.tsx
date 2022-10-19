@@ -12,13 +12,10 @@ import {
   Box
 } from '@mui/material';
 import { LinkMenu } from './LinkMenu';
+import { IChildrenProps } from '../../services/interfaces';
 import { useAuthContext, useDrawerContext, useThemeContext } from '../../contexts';
 
-interface MenuLateralProps {
-  children: React.ReactNode;
-}
-
-export const MenuLateral = ({ children }: MenuLateralProps) => {
+export const MenuLateral = ({ children }: IChildrenProps) => {
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();

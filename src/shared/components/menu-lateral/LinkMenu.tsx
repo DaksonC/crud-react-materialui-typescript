@@ -1,12 +1,6 @@
 import { Icon, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
-
-interface ILinksProps {
-  to: string;
-  icon: string;
-  label: string;
-  onClick: (() => void) | undefined;
-}
+import { ILinksProps } from '../../services/interfaces';
 
 export const LinkMenu = ({to, icon, label, onClick}: ILinksProps) => {
   const navigate = useNavigate();

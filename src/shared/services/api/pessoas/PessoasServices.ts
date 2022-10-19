@@ -1,23 +1,5 @@
+import { IDetalhePessoa, TPessoasComTotalCount } from '../../interfaces';
 import { api } from '../axios-config';
-
-export interface IListagemPessoas {
-  id: number;
-  nomeCompleto: string;
-  email: string;
-  cidadeId: number;
-}
-
-export interface IDetalhePessoa {
-  id: number;
-  nomeCompleto: string;
-  email: string;
-  cidadeId: number;
-}
-
-type TPessoasComTotalCount = {
-  data: IDetalhePessoa[];
-  totalCount: number;
-}
 
 const getAll = async (page = 1, filter = ''): Promise<TPessoasComTotalCount | Error> => {
   try {

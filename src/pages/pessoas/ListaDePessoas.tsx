@@ -16,11 +16,12 @@ import {
   Theme, 
   useMediaQuery
 } from "@mui/material";
-import { IListagemPessoas, PessoasServices } from "../../shared/services/api/pessoas/PessoasServices";
-import { FerramentasDaListagem } from "../../shared/components";
-import { LayoutBaseDePagina } from "../../shared/layouts";
 import { useDebounce } from "../../shared/hooks";
 import { green, red } from "@mui/material/colors";
+import { LayoutBaseDePagina } from "../../shared/layouts";
+import { FerramentasDaListagem } from "../../shared/components";
+import { IListagemPessoas } from "../../shared/services/interfaces";
+import { PessoasServices } from "../../shared/services/api/pessoas/PessoasServices";
 
 export const ListaDePessoas = () => {
   const [searchParams, setSearchParams] = useSearchParams();

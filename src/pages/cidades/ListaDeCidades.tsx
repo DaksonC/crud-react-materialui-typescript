@@ -16,14 +16,12 @@ import {
   Theme, 
   useMediaQuery
 } from "@mui/material";
-import { 
-  IListagemCidades, 
-  CidadesServices 
-} from "../../shared/services/api/cidades/CidadesServices";
-import { FerramentasDaListagem } from "../../shared/components";
-import { LayoutBaseDePagina } from "../../shared/layouts";
 import { useDebounce } from "../../shared/hooks";
 import { green, red } from "@mui/material/colors";
+import { LayoutBaseDePagina } from "../../shared/layouts";
+import { FerramentasDaListagem } from "../../shared/components";
+import { IListagemCidades } from "../../shared/services/interfaces";
+import { CidadesServices } from "../../shared/services/api/cidades/CidadesServices";
 
 export const ListaDeCidades = () => {
   const [searchParams, setSearchParams] = useSearchParams();
